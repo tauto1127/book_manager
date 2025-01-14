@@ -7,9 +7,12 @@ class AddBookPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Add Book Page'),
+    return Scaffold(
+      appBar: AppBar(),
+      body: const Column(
+        children: [
+          Text('Add Book Page'),
+        ],
       ),
     );
   }

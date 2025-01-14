@@ -8,6 +8,10 @@ type Book @table {
     created: Date! @default(expr: "request.time")
     updated: Date! @default(expr: "request.time")
     thumbnail: String
+    isbn: String
+    author: String
+    publisher: String
+    publishedDate: Date
 }
 
 type ReadingEntry @table {

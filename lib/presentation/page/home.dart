@@ -3,6 +3,7 @@ import 'package:book_manager/domain/book/book.dart';
 import 'package:book_manager/domain/book/book_repository_base.dart';
 import 'package:book_manager/infrastructure/book/book_repository.dart';
 import 'package:book_manager/main.dart';
+import 'package:book_manager/presentation/routes.gr.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -71,7 +72,15 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: IconButton(onPressed: () {}, icon: const Icon(Icons.add)), label: 'Add'),
+          BottomNavigationBarItem(
+              icon: IconButton(
+                  onPressed: () {
+                    context.pushRoute(
+                      const AddBookRoute(),
+                    );
+                  },
+                  icon: const Icon(Icons.add)),
+              label: 'Add'),
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
         ],
       ),
