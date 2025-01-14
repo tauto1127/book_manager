@@ -7,7 +7,7 @@ part 'book.g.dart';
 @freezed
 class Book with _$Book {
   const factory Book({
-    required int id,
+    required String id,
     required String title,
     required int currentPage,
     required int lastPage,

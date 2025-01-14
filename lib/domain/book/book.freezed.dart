@@ -20,7 +20,7 @@ Book _$BookFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Book {
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   int get currentPage => throw _privateConstructorUsedError;
   int get lastPage => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $BookCopyWith<$Res> {
       _$BookCopyWithImpl<$Res, Book>;
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String title,
       int currentPage,
       int lastPage,
@@ -78,7 +78,7 @@ class _$BookCopyWithImpl<$Res, $Val extends Book>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -111,7 +111,7 @@ abstract class _$$BookImplCopyWith<$Res> implements $BookCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String title,
       int currentPage,
       int lastPage,
@@ -142,7 +142,7 @@ class __$$BookImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -183,7 +183,7 @@ class _$BookImpl extends _Book {
       _$$BookImplFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
   final String title;
   @override
@@ -240,7 +240,7 @@ class _$BookImpl extends _Book {
 
 abstract class _Book extends Book {
   const factory _Book(
-      {required final int id,
+      {required final String id,
       required final String title,
       required final int currentPage,
       required final int lastPage,
@@ -251,7 +251,7 @@ abstract class _Book extends Book {
   factory _Book.fromJson(Map<String, dynamic> json) = _$BookImpl.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
   String get title;
   @override

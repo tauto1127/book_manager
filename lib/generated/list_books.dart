@@ -32,6 +32,12 @@ class ListBooksVariablesBuilder {
    int lastPage;
 
   
+   DateTime created;
+
+  
+   DateTime updated;
+
+  
   
     
     
@@ -67,8 +73,28 @@ class ListBooksVariablesBuilder {
   
 
         
+        ,
+      
+        created = 
+ 
+    nativeFromJson<DateTime>(json['created'])
+  
+
+        
+        ,
+      
+        updated = 
+ 
+    nativeFromJson<DateTime>(json['updated'])
+  
+
+        
         
        {
+      
+        
+      
+        
       
         
       
@@ -116,6 +142,22 @@ class ListBooksVariablesBuilder {
 ;
       
     
+      
+      json['created'] = 
+  
+    nativeToJson<DateTime>(created)
+    
+;
+      
+    
+      
+      json['updated'] = 
+  
+    nativeToJson<DateTime>(updated)
+    
+;
+      
+    
     return json;
   }
 
@@ -128,6 +170,10 @@ class ListBooksVariablesBuilder {
       required this.currentPage,
     
       required this.lastPage,
+    
+      required this.created,
+    
+      required this.updated,
     
   });
 }

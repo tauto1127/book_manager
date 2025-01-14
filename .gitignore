@@ -1,4 +1,8 @@
-
+GoogleService-Info.plist
+.firebaserc
+firebase.json
+firebase_options.dart
+google-services.json
 # FVM Version Cache
 .fvm/
 # Do not remove or rename entries in this file, only add new ones

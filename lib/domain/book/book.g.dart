@@ -7,7 +7,7 @@ part of 'book.dart';
 // **************************************************************************
 
 _$BookImpl _$$BookImplFromJson(Map<String, dynamic> json) => _$BookImpl(
-      id: (json['id'] as num).toInt(),
+      id: json['id'] as String,
       title: json['title'] as String,
       currentPage: (json['currentPage'] as num).toInt(),
       lastPage: (json['lastPage'] as num).toInt(),
