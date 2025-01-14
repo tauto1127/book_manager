@@ -5,6 +5,8 @@ query ListBooks @auth(level: PUBLIC) {
     title
     currentPage
     lastPage
+    created
+    updated
   }
 }
 
