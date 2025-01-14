@@ -1,0 +1,368 @@
+"""
+✨ `Book_KeyOutput` returns the primary key fields of table type `Book`.
+
+It has the same format as `Book_Key`, but is only used as mutation return value.
+"""
+scalar Book_KeyOutput
+"""
+✨ `ReadingEntry_KeyOutput` returns the primary key fields of table type `ReadingEntry`.
+
+It has the same format as `ReadingEntry_Key`, but is only used as mutation return value.
+"""
+scalar ReadingEntry_KeyOutput
+"""
+✨ Generated data input type for table 'Book'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input Book_Data {
+  """
+  ✨ Generated from Field `Book`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Book`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Book`.`created` of type `Date!`
+  """
+  created: Date
+  """
+  ✨ `_date` server value variant of `created` (✨ Generated from Field `Book`.`created` of type `Date!`)
+  """
+  created_date: Date_Relative
+  """
+  ✨ `_expr` server value variant of `created` (✨ Generated from Field `Book`.`created` of type `Date!`)
+  """
+  created_expr: Date_Expr
+  """
+  ✨ Generated from Field `Book`.`currentPage` of type `Int!`
+  """
+  currentPage: Int
+  """
+  ✨ Generated from Field `Book`.`lastPage` of type `Int!`
+  """
+  lastPage: Int
+  """
+  ✨ Generated from Field `Book`.`thumbnail` of type `String`
+  """
+  thumbnail: String
+  """
+  ✨ `_expr` server value variant of `thumbnail` (✨ Generated from Field `Book`.`thumbnail` of type `String`)
+  """
+  thumbnail_expr: String_Expr
+  """
+  ✨ Generated from Field `Book`.`title` of type `String!`
+  """
+  title: String
+  """
+  ✨ `_expr` server value variant of `title` (✨ Generated from Field `Book`.`title` of type `String!`)
+  """
+  title_expr: String_Expr
+  """
+  ✨ Generated from Field `Book`.`updated` of type `Date!`
+  """
+  updated: Date
+  """
+  ✨ `_date` server value variant of `updated` (✨ Generated from Field `Book`.`updated` of type `Date!`)
+  """
+  updated_date: Date_Relative
+  """
+  ✨ `_expr` server value variant of `updated` (✨ Generated from Field `Book`.`updated` of type `Date!`)
+  """
+  updated_expr: Date_Expr
+}
+"""
+✨ Generated filter input type for table 'Book'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Book_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [Book_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: Book_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [Book_Filter!]
+  """
+  ✨ Generated from Field `Book`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `Book`.`created` of type `Date!`
+  """
+  created: Date_Filter
+  """
+  ✨ Generated from Field `Book`.`currentPage` of type `Int!`
+  """
+  currentPage: Int_Filter
+  """
+  ✨ Generated from Field `Book`.`lastPage` of type `Int!`
+  """
+  lastPage: Int_Filter
+  """
+  ✨ Generated from Field `Book`.`thumbnail` of type `String`
+  """
+  thumbnail: String_Filter
+  """
+  ✨ Generated from Field `Book`.`title` of type `String!`
+  """
+  title: String_Filter
+  """
+  ✨ Generated from Field `Book`.`updated` of type `Date!`
+  """
+  updated: Date_Filter
+  """
+  ✨ Generated from Field `Book`.`readingEntries_on_book` of type `[ReadingEntry!]!`
+  """
+  readingEntries_on_book: ReadingEntry_ListFilter
+}
+"""
+✨ Generated first-row input type for table 'Book'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input Book_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [Book_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: Book_Filter
+}
+"""
+✨ Generated key input type for table 'Book'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input Book_Key {
+  """
+  ✨ Generated from Field `Book`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Book`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'Book'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input Book_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: Book_Filter
+}
+"""
+✨ Generated order input type for table 'Book'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input Book_Order {
+  """
+  ✨ Generated from Field `Book`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `Book`.`created` of type `Date!`
+  """
+  created: OrderDirection
+  """
+  ✨ Generated from Field `Book`.`currentPage` of type `Int!`
+  """
+  currentPage: OrderDirection
+  """
+  ✨ Generated from Field `Book`.`lastPage` of type `Int!`
+  """
+  lastPage: OrderDirection
+  """
+  ✨ Generated from Field `Book`.`thumbnail` of type `String`
+  """
+  thumbnail: OrderDirection
+  """
+  ✨ Generated from Field `Book`.`title` of type `String!`
+  """
+  title: OrderDirection
+  """
+  ✨ Generated from Field `Book`.`updated` of type `Date!`
+  """
+  updated: OrderDirection
+}
+"""
+✨ Generated data input type for table 'ReadingEntry'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input ReadingEntry_Data {
+  """
+  ✨ Generated from Field `ReadingEntry`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `ReadingEntry`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `ReadingEntry`.`bookId` of type `UUID!`
+  """
+  bookId: UUID
+  """
+  ✨ `_expr` server value variant of `bookId` (✨ Generated from Field `ReadingEntry`.`bookId` of type `UUID!`)
+  """
+  bookId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `ReadingEntry`.`book` of type `Book!`
+  """
+  book: Book_Key
+  """
+  ✨ Generated from Field `ReadingEntry`.`durationSeconds` of type `Int!`
+  """
+  durationSeconds: Int
+  """
+  ✨ Generated from Field `ReadingEntry`.`endDate` of type `Date!`
+  """
+  endDate: Date
+  """
+  ✨ `_date` server value variant of `endDate` (✨ Generated from Field `ReadingEntry`.`endDate` of type `Date!`)
+  """
+  endDate_date: Date_Relative
+  """
+  ✨ `_expr` server value variant of `endDate` (✨ Generated from Field `ReadingEntry`.`endDate` of type `Date!`)
+  """
+  endDate_expr: Date_Expr
+  """
+  ✨ Generated from Field `ReadingEntry`.`pageRead` of type `Int!`
+  """
+  pageRead: Int
+  """
+  ✨ Generated from Field `ReadingEntry`.`startDate` of type `Date!`
+  """
+  startDate: Date
+  """
+  ✨ `_date` server value variant of `startDate` (✨ Generated from Field `ReadingEntry`.`startDate` of type `Date!`)
+  """
+  startDate_date: Date_Relative
+  """
+  ✨ `_expr` server value variant of `startDate` (✨ Generated from Field `ReadingEntry`.`startDate` of type `Date!`)
+  """
+  startDate_expr: Date_Expr
+}
+"""
+✨ Generated filter input type for table 'ReadingEntry'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input ReadingEntry_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [ReadingEntry_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: ReadingEntry_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [ReadingEntry_Filter!]
+  """
+  ✨ Generated from Field `ReadingEntry`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `ReadingEntry`.`bookId` of type `UUID!`
+  """
+  bookId: UUID_Filter
+  """
+  ✨ Generated from Field `ReadingEntry`.`book` of type `Book!`
+  """
+  book: Book_Filter
+  """
+  ✨ Generated from Field `ReadingEntry`.`durationSeconds` of type `Int!`
+  """
+  durationSeconds: Int_Filter
+  """
+  ✨ Generated from Field `ReadingEntry`.`endDate` of type `Date!`
+  """
+  endDate: Date_Filter
+  """
+  ✨ Generated from Field `ReadingEntry`.`pageRead` of type `Int!`
+  """
+  pageRead: Int_Filter
+  """
+  ✨ Generated from Field `ReadingEntry`.`startDate` of type `Date!`
+  """
+  startDate: Date_Filter
+}
+"""
+✨ Generated first-row input type for table 'ReadingEntry'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input ReadingEntry_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [ReadingEntry_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: ReadingEntry_Filter
+}
+"""
+✨ Generated key input type for table 'ReadingEntry'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input ReadingEntry_Key {
+  """
+  ✨ Generated from Field `ReadingEntry`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `ReadingEntry`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'ReadingEntry'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input ReadingEntry_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: ReadingEntry_Filter
+}
+"""
+✨ Generated order input type for table 'ReadingEntry'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input ReadingEntry_Order {
+  """
+  ✨ Generated from Field `ReadingEntry`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `ReadingEntry`.`bookId` of type `UUID!`
+  """
+  bookId: OrderDirection
+  """
+  ✨ Generated from Field `ReadingEntry`.`book` of type `Book!`
+  """
+  book: Book_Order
+  """
+  ✨ Generated from Field `ReadingEntry`.`durationSeconds` of type `Int!`
+  """
+  durationSeconds: OrderDirection
+  """
+  ✨ Generated from Field `ReadingEntry`.`endDate` of type `Date!`
+  """
+  endDate: OrderDirection
+  """
+  ✨ Generated from Field `ReadingEntry`.`pageRead` of type `Int!`
+  """
+  pageRead: OrderDirection
+  """
+  ✨ Generated from Field `ReadingEntry`.`startDate` of type `Date!`
+  """
+  startDate: OrderDirection
+}

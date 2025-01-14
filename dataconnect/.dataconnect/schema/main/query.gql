@@ -1,0 +1,88 @@
+extend type Query {
+  """
+  ✨ Look up a single `Book` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  book(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Book_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Book_FirstRow
+  ): Book @fdc_generated(from: "Book", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `ReadingEntry` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  readingEntry(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: ReadingEntry_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: ReadingEntry_FirstRow
+  ): ReadingEntry @fdc_generated(from: "ReadingEntry", purpose: QUERY_SINGLE)
+  """
+  ✨ List `Book` objects in the table, optionally filtered by `where` conditions.
+  """
+  books(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Book_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Book_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+  ): [Book!]! @fdc_generated(from: "Book", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `ReadingEntry` objects in the table, optionally filtered by `where` conditions.
+  """
+  readingEntries(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: ReadingEntry_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [ReadingEntry_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+  ): [ReadingEntry!]! @fdc_generated(from: "ReadingEntry", purpose: QUERY_MULTIPLE)
+}

@@ -1,0 +1,6 @@
+extend type ReadingEntry {
+  """
+  ✨ Implicit foreign key field based on `ReadingEntry`.`book`. It must match the value of `Book`.`id`. See `@ref` for how to customize it.
+  """
+  bookId: UUID! @fdc_generated(from: "ReadingEntry.book", purpose: IMPLICIT_REF_FIELD)
+}

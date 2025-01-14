@@ -1,0 +1,11 @@
+specVersion: "v1alpha"
+serviceId: "book-manager"
+location: "asia-northeast1"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "book-manager"
+      cloudSql:
+        instanceId: "book-manager"
+connectorDirs: ["./connector"]
