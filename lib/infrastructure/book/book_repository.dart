@@ -24,7 +24,6 @@ abstract class BookFunctionsClient {
 class BookRestRepository implements BookRepositoryBase {
   @override
   Future<Book> addBook(Book book) {
-    // TODO: implement addBook
     throw UnimplementedError();
   }
 

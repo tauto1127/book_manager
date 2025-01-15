@@ -23,6 +23,14 @@ input Book_Data {
   """
   id_expr: UUID_Expr
   """
+  ✨ Generated from Field `Book`.`author` of type `String`
+  """
+  author: String
+  """
+  ✨ `_expr` server value variant of `author` (✨ Generated from Field `Book`.`author` of type `String`)
+  """
+  author_expr: String_Expr
+  """
   ✨ Generated from Field `Book`.`created` of type `Date!`
   """
   created: Date
@@ -39,9 +47,25 @@ input Book_Data {
   """
   currentPage: Int
   """
+  ✨ Generated from Field `Book`.`isbn` of type `String`
+  """
+  isbn: String
+  """
+  ✨ `_expr` server value variant of `isbn` (✨ Generated from Field `Book`.`isbn` of type `String`)
+  """
+  isbn_expr: String_Expr
+  """
   ✨ Generated from Field `Book`.`lastPage` of type `Int!`
   """
   lastPage: Int
+  """
+  ✨ Generated from Field `Book`.`publisher` of type `String`
+  """
+  publisher: String
+  """
+  ✨ `_expr` server value variant of `publisher` (✨ Generated from Field `Book`.`publisher` of type `String`)
+  """
+  publisher_expr: String_Expr
   """
   ✨ Generated from Field `Book`.`thumbnail` of type `String`
   """
@@ -92,6 +116,10 @@ input Book_Filter {
   """
   id: UUID_Filter
   """
+  ✨ Generated from Field `Book`.`author` of type `String`
+  """
+  author: String_Filter
+  """
   ✨ Generated from Field `Book`.`created` of type `Date!`
   """
   created: Date_Filter
@@ -100,9 +128,17 @@ input Book_Filter {
   """
   currentPage: Int_Filter
   """
+  ✨ Generated from Field `Book`.`isbn` of type `String`
+  """
+  isbn: String_Filter
+  """
   ✨ Generated from Field `Book`.`lastPage` of type `Int!`
   """
   lastPage: Int_Filter
+  """
+  ✨ Generated from Field `Book`.`publisher` of type `String`
+  """
+  publisher: String_Filter
   """
   ✨ Generated from Field `Book`.`thumbnail` of type `String`
   """
@@ -168,6 +204,10 @@ input Book_Order {
   """
   id: OrderDirection
   """
+  ✨ Generated from Field `Book`.`author` of type `String`
+  """
+  author: OrderDirection
+  """
   ✨ Generated from Field `Book`.`created` of type `Date!`
   """
   created: OrderDirection
@@ -176,9 +216,17 @@ input Book_Order {
   """
   currentPage: OrderDirection
   """
+  ✨ Generated from Field `Book`.`isbn` of type `String`
+  """
+  isbn: OrderDirection
+  """
   ✨ Generated from Field `Book`.`lastPage` of type `Int!`
   """
   lastPage: OrderDirection
+  """
+  ✨ Generated from Field `Book`.`publisher` of type `String`
+  """
+  publisher: OrderDirection
   """
   ✨ Generated from Field `Book`.`thumbnail` of type `String`
   """

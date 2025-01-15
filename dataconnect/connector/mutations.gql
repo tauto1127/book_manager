@@ -13,28 +13,28 @@ mutation CreateBook(
   )
 }
 
-# mutation AddBook(
-#   $author: String
-#   $created: Date!
-#   $currentPage: Int!
-#   $isbn: String
-#   $lastPage: Int!
-#   $publisher: String
-#   $thumbnail: String
-#   $title: String!
-# ) @auth(level: USER) {
-#   book_insert(
-#     data: {
-#       author: $author
-#       created: $created
-#       currentPage: $currentPage
-#       isbn: $isbn
-#       lastPage: $lastPage
-#       publisher: $publisher
-#       thumbnail: $thumbnail
-#       title: $title
-#     })
-# }
+mutation AddBook(
+  $author: String
+  $created: Date!
+  $currentPage: Int!
+  $isbn: String
+  $lastPage: Int!
+  $publisher: String
+  $thumbnail: String
+  $title: String!
+) @auth(level: PUBLIC){
+  book_insert(
+    data: {
+      created: $created
+      currentPage: $currentPage
+      lastPage: $lastPage
+      thumbnail: $thumbnail
+      title: $title
+      author: $author
+      isbn: $isbn
+      publisher: $publisher
+    })
+}
 
 # # Create a movie based on user input
 # mutation CreateMovie(

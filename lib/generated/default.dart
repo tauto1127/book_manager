@@ -4,6 +4,8 @@ import 'dart:convert';
 
 part 'create_book.dart';
 
+part 'add_book.dart';
+
 part 'list_books.dart';
 
 
@@ -17,6 +19,11 @@ class DefaultConnector {
   
   CreateBookVariablesBuilder createBook ({required String title,required int currentPage,required int lastPage,}) {
     return CreateBookVariablesBuilder(dataConnect, title: title,currentPage: currentPage,lastPage: lastPage,);
+  }
+  
+  
+  AddBookVariablesBuilder addBook ({required DateTime created,required int currentPage,required int lastPage,required String title,}) {
+    return AddBookVariablesBuilder(dataConnect, created: created,currentPage: currentPage,lastPage: lastPage,title: title,);
   }
   
   
