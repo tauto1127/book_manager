@@ -5,13 +5,12 @@ type Book @table {
     title: String!
     currentPage: Int!
     lastPage: Int!
-    created: Date! @default(expr: "request.time")
-    updated: Date! @default(expr: "request.time")
     thumbnail: String
     isbn: String
+    created: Date!
+    updated: Date! @default(expr: "request.time")
     author: String
     publisher: String
-    publishedDate: Date
 }
 
 type ReadingEntry @table {

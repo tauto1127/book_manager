@@ -5,10 +5,20 @@ class BookPage {
   final int value;
 
   BookPage(this.value) {
-    if (value < 0) {
+    if (isPageValid(value) == false) {
       throw ArgumentError('Book page cannot be negative');
     }
   }
+
+  static bool isPageValid(int value) {
+    return value >= 0;
+  }
+
+  bool isValid() {
+    return isPageValid(value);
+  }
+
+  BookPage.fromString(String value) : value = int.parse(value);
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is BookPage && runtimeType == other.runtimeType && value == other.value;
