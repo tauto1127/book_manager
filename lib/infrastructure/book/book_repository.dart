@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:book_manager/domain/book/book.dart';
 import 'package:book_manager/domain/book/book_repository_base.dart';
-import 'package:book_manager/generated/default.dart';
 import 'package:book_manager/main.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
@@ -29,17 +28,17 @@ class BookRestRepository implements BookRepositoryBase {
 
   @override
   Future<List<Book>> getBooks() async {
-    ListBooksVariablesBuilder queryRef = DefaultConnector.instance.listBooks();
+    //ListBooksVariablesBuilder queryRef = DefaultConnector.instance.listBooks();
     List<Book> books = [];
-    var result = await queryRef.execute();
-
-    result.data.books.forEach((element) {
-      books.add(
-        Book.fromJson(
-          element.toJson(),
-        ),
-      );
-    });
+    //var result = await queryRef.execute();
+    //
+    //result.data.books.forEach((element) {
+    //  books.add(
+    //    Book.fromJson(
+    //      element.toJson(),
+    //    ),
+    //  );
+    //});
 
     // .then((value) async {
     //   value.data.books.forEach((element) {

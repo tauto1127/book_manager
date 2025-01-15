@@ -20,10 +20,14 @@ Book _$BookFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Book {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   int get currentPage => throw _privateConstructorUsedError;
   int get lastPage => throw _privateConstructorUsedError;
+  String? get thumnail => throw _privateConstructorUsedError;
+  String? get isbn => throw _privateConstructorUsedError;
+  String? get author => throw _privateConstructorUsedError;
+  String? get publisher => throw _privateConstructorUsedError;
   @DateTimeConverter()
   DateTime get created => throw _privateConstructorUsedError;
   @DateTimeConverter()
@@ -44,10 +48,14 @@ abstract class $BookCopyWith<$Res> {
       _$BookCopyWithImpl<$Res, Book>;
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String title,
       int currentPage,
       int lastPage,
+      String? thumnail,
+      String? isbn,
+      String? author,
+      String? publisher,
       @DateTimeConverter() DateTime created,
       @DateTimeConverter() DateTime updated});
 }
@@ -71,6 +79,10 @@ class _$BookCopyWithImpl<$Res, $Val extends Book>
     Object? title = null,
     Object? currentPage = null,
     Object? lastPage = null,
+    Object? thumnail = freezed,
+    Object? isbn = freezed,
+    Object? author = freezed,
+    Object? publisher = freezed,
     Object? created = null,
     Object? updated = null,
   }) {
@@ -78,7 +90,7 @@ class _$BookCopyWithImpl<$Res, $Val extends Book>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -91,6 +103,22 @@ class _$BookCopyWithImpl<$Res, $Val extends Book>
           ? _value.lastPage
           : lastPage // ignore: cast_nullable_to_non_nullable
               as int,
+      thumnail: freezed == thumnail
+          ? _value.thumnail
+          : thumnail // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isbn: freezed == isbn
+          ? _value.isbn
+          : isbn // ignore: cast_nullable_to_non_nullable
+              as String?,
+      author: freezed == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String?,
+      publisher: freezed == publisher
+          ? _value.publisher
+          : publisher // ignore: cast_nullable_to_non_nullable
+              as String?,
       created: null == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
@@ -111,10 +139,14 @@ abstract class _$$BookImplCopyWith<$Res> implements $BookCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String title,
       int currentPage,
       int lastPage,
+      String? thumnail,
+      String? isbn,
+      String? author,
+      String? publisher,
       @DateTimeConverter() DateTime created,
       @DateTimeConverter() DateTime updated});
 }
@@ -135,6 +167,10 @@ class __$$BookImplCopyWithImpl<$Res>
     Object? title = null,
     Object? currentPage = null,
     Object? lastPage = null,
+    Object? thumnail = freezed,
+    Object? isbn = freezed,
+    Object? author = freezed,
+    Object? publisher = freezed,
     Object? created = null,
     Object? updated = null,
   }) {
@@ -142,7 +178,7 @@ class __$$BookImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -155,6 +191,22 @@ class __$$BookImplCopyWithImpl<$Res>
           ? _value.lastPage
           : lastPage // ignore: cast_nullable_to_non_nullable
               as int,
+      thumnail: freezed == thumnail
+          ? _value.thumnail
+          : thumnail // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isbn: freezed == isbn
+          ? _value.isbn
+          : isbn // ignore: cast_nullable_to_non_nullable
+              as String?,
+      author: freezed == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String?,
+      publisher: freezed == publisher
+          ? _value.publisher
+          : publisher // ignore: cast_nullable_to_non_nullable
+              as String?,
       created: null == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
@@ -175,6 +227,10 @@ class _$BookImpl extends _Book {
       required this.title,
       required this.currentPage,
       required this.lastPage,
+      this.thumnail,
+      this.isbn,
+      this.author,
+      this.publisher,
       @DateTimeConverter() required this.created,
       @DateTimeConverter() required this.updated})
       : super._();
@@ -183,13 +239,21 @@ class _$BookImpl extends _Book {
       _$$BookImplFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String title;
   @override
   final int currentPage;
   @override
   final int lastPage;
+  @override
+  final String? thumnail;
+  @override
+  final String? isbn;
+  @override
+  final String? author;
+  @override
+  final String? publisher;
   @override
   @DateTimeConverter()
   final DateTime created;
@@ -199,7 +263,7 @@ class _$BookImpl extends _Book {
 
   @override
   String toString() {
-    return 'Book(id: $id, title: $title, currentPage: $currentPage, lastPage: $lastPage, created: $created, updated: $updated)';
+    return 'Book(id: $id, title: $title, currentPage: $currentPage, lastPage: $lastPage, thumnail: $thumnail, isbn: $isbn, author: $author, publisher: $publisher, created: $created, updated: $updated)';
   }
 
   @override
@@ -213,14 +277,20 @@ class _$BookImpl extends _Book {
                 other.currentPage == currentPage) &&
             (identical(other.lastPage, lastPage) ||
                 other.lastPage == lastPage) &&
+            (identical(other.thumnail, thumnail) ||
+                other.thumnail == thumnail) &&
+            (identical(other.isbn, isbn) || other.isbn == isbn) &&
+            (identical(other.author, author) || other.author == author) &&
+            (identical(other.publisher, publisher) ||
+                other.publisher == publisher) &&
             (identical(other.created, created) || other.created == created) &&
             (identical(other.updated, updated) || other.updated == updated));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, title, currentPage, lastPage, created, updated);
+  int get hashCode => Object.hash(runtimeType, id, title, currentPage, lastPage,
+      thumnail, isbn, author, publisher, created, updated);
 
   /// Create a copy of Book
   /// with the given fields replaced by the non-null parameter values.
@@ -240,10 +310,14 @@ class _$BookImpl extends _Book {
 
 abstract class _Book extends Book {
   const factory _Book(
-      {required final String id,
+      {required final int id,
       required final String title,
       required final int currentPage,
       required final int lastPage,
+      final String? thumnail,
+      final String? isbn,
+      final String? author,
+      final String? publisher,
       @DateTimeConverter() required final DateTime created,
       @DateTimeConverter() required final DateTime updated}) = _$BookImpl;
   const _Book._() : super._();
@@ -251,13 +325,21 @@ abstract class _Book extends Book {
   factory _Book.fromJson(Map<String, dynamic> json) = _$BookImpl.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get title;
   @override
   int get currentPage;
   @override
   int get lastPage;
+  @override
+  String? get thumnail;
+  @override
+  String? get isbn;
+  @override
+  String? get author;
+  @override
+  String? get publisher;
   @override
   @DateTimeConverter()
   DateTime get created;

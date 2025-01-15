@@ -7,10 +7,14 @@ part 'book.g.dart';
 @freezed
 class Book with _$Book {
   const factory Book({
-    required String id,
+    required int id,
     required String title,
     required int currentPage,
     required int lastPage,
+    String? thumnail,
+    String? isbn,
+    String? author,
+    String? publisher,
     @DateTimeConverter() required DateTime created,
     @DateTimeConverter() required DateTime updated,
   }) = _Book;

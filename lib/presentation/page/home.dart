@@ -5,6 +5,7 @@ import 'package:book_manager/infrastructure/book/book_repository.dart';
 import 'package:book_manager/main.dart';
 import 'package:book_manager/presentation/routes.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 @RoutePage()
 class MyHomePage extends StatefulWidget {
@@ -25,9 +26,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   _incrementCounter() async {
-    BookRepositoryBase bookRepository = BookRestRepository();
-    List<Book> books = await bookRepository.getBooks();
-    logger.d(books);
+    logger.d(await Supabase.instance.client.from('book').select('*'));
   }
 
   @override
@@ -39,6 +38,15 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.pushRoute(BookListRoute());
+              },
+              icon: const Icon(Icons.list))
+        ],
+      ),
       body: const Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
