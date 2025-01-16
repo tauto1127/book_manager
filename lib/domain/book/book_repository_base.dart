@@ -1,9 +1,11 @@
+import 'package:book_manager/application/dto/add_book_dto.dart';
 import 'package:book_manager/domain/book/book.dart';
-import 'package:retrofit/retrofit.dart';
+import 'package:book_manager/infrastructure/book/book_repository.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-@RestApi(baseUrl: "http://127.0.0.1:5001/book-manager-8934d/us-central1/")
 abstract class BookRepositoryBase {
-  @GET("/")
   Future<List<Book>> getBooks();
-  Future<Book> addBook(Book book);
+  Future<String> addBook(AddBookDto book);
 }
+
+final bookRepositoryProvider = Provider((ref) => BookRestRepository());

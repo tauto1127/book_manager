@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:book_manager/application/book_app_service.dart';
 import 'package:book_manager/application/dto/add_book_dto.dart';
 import 'package:book_manager/domain/book/value/book_isbn.dart';
 import 'package:book_manager/domain/book/value/book_page.dart';
@@ -72,18 +73,23 @@ class AddBookPage extends HookConsumerWidget {
             ),
             TextButton(
                 onPressed: () {
-                  var addBookDto = AddBookDto(
-                      title: titleController.text,
-                      author: authorController.text,
-                      isbn: BookIsbn(isbnController.text),
-                      publisher: publisherController.text,
-                      currentPage: BookPage.fromString(currentPageController.text),
-                      lastPage: BookPage.fromString(lastPageController.text));
-                  if (addBookDto.isValid()) {
-                    // ref.read(bookRepositoryProvider).addBook(addBookDto);
-                    // AutoRouter.of(context).pop();
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Invalid Form')));
+                  try {
+                    var addBookDto = AddBookDto(
+                        title: titleController.text,
+                        author: authorController.text,
+                        isbn: BookIsbn(isbnController.text),
+                        publisher: publisherController.text,
+                        currentPage: BookPage.fromString(currentPageController.text),
+                        lastPage: BookPage.fromString(lastPageController.text));
+                    if (AddBookDto.isValid(addBookDto)) {
+                      ref.read(bookAppServiceProvider).addBook(addBookDto);
+                      //ref.read(bookRepositoryProvider).addBook(addBookDto);
+                      // AutoRouter.of(context).pop();
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Invalid Form')));
+                    }
+                  } catch (e) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
                   }
                 },
                 child: const Text("決定する"))

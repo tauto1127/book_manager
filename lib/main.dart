@@ -14,6 +14,10 @@ final Logger logger = Logger();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+      anonKey:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloZHVjYm1yeHFxZGlnZndsdXB4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY5NDMwMjMsImV4cCI6MjA1MjUxOTAyM30.NU1iFCVs1kt0cOd_R7pE79tMg9mGWaD1_qGjWMjA-L0',
+      url: 'https://ihducbmrxqqdigfwlupx.supabase.co');
   runApp(ProviderScope(child: MyApp()));
 }
 

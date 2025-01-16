@@ -1,11 +1,13 @@
 import 'dart:convert';
 
+import 'package:book_manager/application/dto/add_book_dto.dart';
 import 'package:book_manager/domain/book/book.dart';
 import 'package:book_manager/domain/book/book_repository_base.dart';
 import 'package:book_manager/main.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 part 'book_repository.g.dart';
 
@@ -22,8 +24,11 @@ abstract class BookFunctionsClient {
 
 class BookRestRepository implements BookRepositoryBase {
   @override
-  Future<Book> addBook(Book book) {
-    throw UnimplementedError();
+  Future<String> addBook(AddBookDto book) async {
+    var result = await Supabase.instance.client.from('book').insert(book.toJson());
+    //await Supabase.instance.client.from('book').insert(
+    //)
+    return result.toString();
   }
 
   @override
