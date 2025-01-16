@@ -3,6 +3,7 @@ import 'package:book_manager/domain/book/book.dart';
 import 'package:book_manager/domain/book/book_repository_base.dart';
 import 'package:book_manager/infrastructure/book/book_repository.dart';
 import 'package:book_manager/main.dart';
+import 'package:book_manager/presentation/page/developer_page.dart';
 import 'package:book_manager/presentation/routes.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -26,7 +27,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   _incrementCounter() async {
-    logger.d(await Supabase.instance.client.from('book').select('*'));
+    context.pushRoute(const DeveloperRoute());
   }
 
   @override
