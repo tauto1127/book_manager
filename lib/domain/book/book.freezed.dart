@@ -22,10 +22,13 @@ Book _$BookFromJson(Map<String, dynamic> json) {
 mixin _$Book {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  int get currentPage => throw _privateConstructorUsedError;
-  int get lastPage => throw _privateConstructorUsedError;
+  @BookPageConverter()
+  BookPage get currentPage => throw _privateConstructorUsedError;
+  @BookPageConverter()
+  BookPage get lastPage => throw _privateConstructorUsedError;
   String? get thumnail => throw _privateConstructorUsedError;
-  String? get isbn => throw _privateConstructorUsedError;
+  @BookIsbnConverter()
+  BookIsbn? get isbn => throw _privateConstructorUsedError;
   String? get author => throw _privateConstructorUsedError;
   String? get publisher => throw _privateConstructorUsedError;
   @DateTimeConverter()
@@ -50,10 +53,10 @@ abstract class $BookCopyWith<$Res> {
   $Res call(
       {int id,
       String title,
-      int currentPage,
-      int lastPage,
+      @BookPageConverter() BookPage currentPage,
+      @BookPageConverter() BookPage lastPage,
       String? thumnail,
-      String? isbn,
+      @BookIsbnConverter() BookIsbn? isbn,
       String? author,
       String? publisher,
       @DateTimeConverter() DateTime created,
@@ -98,11 +101,11 @@ class _$BookCopyWithImpl<$Res, $Val extends Book>
       currentPage: null == currentPage
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as BookPage,
       lastPage: null == lastPage
           ? _value.lastPage
           : lastPage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as BookPage,
       thumnail: freezed == thumnail
           ? _value.thumnail
           : thumnail // ignore: cast_nullable_to_non_nullable
@@ -110,7 +113,7 @@ class _$BookCopyWithImpl<$Res, $Val extends Book>
       isbn: freezed == isbn
           ? _value.isbn
           : isbn // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BookIsbn?,
       author: freezed == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -141,10 +144,10 @@ abstract class _$$BookImplCopyWith<$Res> implements $BookCopyWith<$Res> {
   $Res call(
       {int id,
       String title,
-      int currentPage,
-      int lastPage,
+      @BookPageConverter() BookPage currentPage,
+      @BookPageConverter() BookPage lastPage,
       String? thumnail,
-      String? isbn,
+      @BookIsbnConverter() BookIsbn? isbn,
       String? author,
       String? publisher,
       @DateTimeConverter() DateTime created,
@@ -186,11 +189,11 @@ class __$$BookImplCopyWithImpl<$Res>
       currentPage: null == currentPage
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as BookPage,
       lastPage: null == lastPage
           ? _value.lastPage
           : lastPage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as BookPage,
       thumnail: freezed == thumnail
           ? _value.thumnail
           : thumnail // ignore: cast_nullable_to_non_nullable
@@ -198,7 +201,7 @@ class __$$BookImplCopyWithImpl<$Res>
       isbn: freezed == isbn
           ? _value.isbn
           : isbn // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BookIsbn?,
       author: freezed == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -225,10 +228,10 @@ class _$BookImpl extends _Book {
   const _$BookImpl(
       {required this.id,
       required this.title,
-      required this.currentPage,
-      required this.lastPage,
+      @BookPageConverter() required this.currentPage,
+      @BookPageConverter() required this.lastPage,
       this.thumnail,
-      this.isbn,
+      @BookIsbnConverter() this.isbn,
       this.author,
       this.publisher,
       @DateTimeConverter() required this.created,
@@ -243,13 +246,16 @@ class _$BookImpl extends _Book {
   @override
   final String title;
   @override
-  final int currentPage;
+  @BookPageConverter()
+  final BookPage currentPage;
   @override
-  final int lastPage;
+  @BookPageConverter()
+  final BookPage lastPage;
   @override
   final String? thumnail;
   @override
-  final String? isbn;
+  @BookIsbnConverter()
+  final BookIsbn? isbn;
   @override
   final String? author;
   @override
@@ -312,10 +318,10 @@ abstract class _Book extends Book {
   const factory _Book(
       {required final int id,
       required final String title,
-      required final int currentPage,
-      required final int lastPage,
+      @BookPageConverter() required final BookPage currentPage,
+      @BookPageConverter() required final BookPage lastPage,
       final String? thumnail,
-      final String? isbn,
+      @BookIsbnConverter() final BookIsbn? isbn,
       final String? author,
       final String? publisher,
       @DateTimeConverter() required final DateTime created,
@@ -329,13 +335,16 @@ abstract class _Book extends Book {
   @override
   String get title;
   @override
-  int get currentPage;
+  @BookPageConverter()
+  BookPage get currentPage;
   @override
-  int get lastPage;
+  @BookPageConverter()
+  BookPage get lastPage;
   @override
   String? get thumnail;
   @override
-  String? get isbn;
+  @BookIsbnConverter()
+  BookIsbn? get isbn;
   @override
   String? get author;
   @override

@@ -49,7 +49,7 @@ class AddEntryRoute extends _i6.PageRouteInfo<void> {
   static _i6.PageInfo page = _i6.PageInfo(
     name,
     builder: (data) {
-      return _i2.AddEntryPage();
+      return const _i2.AddEntryPage();
     },
   );
 }
