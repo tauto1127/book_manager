@@ -24,6 +24,8 @@ class AddEntryPage extends HookConsumerWidget {
     var stream = ref.watch(currentReadingViewModelProvider.notifier).stopWatchTimer.rawTime;
     final rawTime = useStream<int>(stream, initialData: 0);
 
+    debugPrint("build");
+
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -42,6 +44,22 @@ class AddEntryPage extends HookConsumerWidget {
                     ],
                   )
                 : Container(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                    onPressed: () {
+                      if (state.isTimerRunning) {
+                        ref.read(currentReadingViewModelProvider.notifier).timerStop();
+                      } else {
+                        ref.read(currentReadingViewModelProvider.notifier).timerStart();
+                      }
+                    },
+                    icon: const Icon(Icons.pause)),
+                IconButton(onPressed: () {}, icon: const Icon(Icons.stop))
+              ],
+            ),
+            Text("読み始め：${state.startAt}"),
           ],
         ),
       ),

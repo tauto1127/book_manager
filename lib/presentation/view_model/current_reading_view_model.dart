@@ -1,4 +1,4 @@
-import 'package:book_manager/application/dto/book_dto.dart';
+import 'package:book_manager/application/dto/book/book_dto.dart';
 import 'package:book_manager/main.dart';
 import 'package:book_manager/presentation/state/current_reading_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -18,12 +18,23 @@ class CurrentReadingViewModel extends _$CurrentReadingViewModel {
     });
     logger.d('current_reading_view_model created');
 
-    return const CurrentReadingState();
+    return CurrentReadingState(startAt: DateTime.now());
   }
 
   Future<void> start(BookDto book) async {
     logger.i("start");
     state = state.copyWith(book: book);
+    stopWatchTimer.onStartTimer();
+  }
+
+  void timerStop() {
+    logger.i("stop");
+    state = state.copyWith(isTimerRunning: false);
+    stopWatchTimer.onStopTimer();
+  }
+
+  void timerStart() {
+    state = state.copyWith(isTimerRunning: true);
     stopWatchTimer.onStartTimer();
   }
 }

@@ -1,11 +1,15 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:book_manager/application/book_app_service.dart';
+import 'package:book_manager/application/dto/book/book_dto.dart';
 import 'package:book_manager/domain/book/book.dart';
 import 'package:book_manager/domain/book/book_repository_base.dart';
 import 'package:book_manager/infrastructure/book/book_repository.dart';
 import 'package:book_manager/main.dart';
 import 'package:book_manager/presentation/page/developer_page.dart';
 import 'package:book_manager/presentation/routes.gr.dart';
+import 'package:book_manager/presentation/view_model/current_reading_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 @RoutePage()
@@ -48,31 +52,35 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: const Icon(Icons.list))
         ],
       ),
-      body: const Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-          ],
-        ),
-      ),
+      body: Consumer(builder: (context, ref, _) {
+        return FutureBuilder(
+          builder: (context, AsyncSnapshot<List<BookDto>> snapshot) {
+            return ListView.builder(
+              itemBuilder: (context, i) {
+                return ListTile(
+                    title: Text(snapshot.data![i].title),
+                    subtitle: Text("Page: ${snapshot.data![i].currentPage.value} / ${snapshot.data![i].lastPage.value}"),
+                    onTap: () {},
+                    leading:
+                        snapshot.data![i].thumnail != null ? Image.network(snapshot.data![i].thumnail!.toString()) : const Icon(Icons.book),
+                    trailing: IconButton(
+                      icon: Icon(Icons.play_circle_fill),
+                      onPressed: () async {
+                        var listener = ref.listenManual(currentReadingViewModelProvider, (prev, next) {});
+                        await ref.read(currentReadingViewModelProvider.notifier).start(snapshot.data![i]);
+                        if (context.mounted) {
+                          await context.pushRoute(const AddEntryRoute());
+                        }
+                        listener.close();
+                      },
+                    ));
+              },
+              itemCount: snapshot.data!.length,
+            );
+          },
+          future: ref.watch(bookAppServiceProvider).getBooks(),
+        );
+      }),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',

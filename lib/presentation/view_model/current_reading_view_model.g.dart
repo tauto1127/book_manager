@@ -7,7 +7,7 @@ part of 'current_reading_view_model.dart';
 // **************************************************************************
 
 String _$currentReadingViewModelHash() =>
-    r'45e28e0b6f2cc8cb75b755303c432b5960cbacf4';
+    r'3469e9bec8b5ea1c1498eb13b895f950e3d09e10';
 
 /// See also [CurrentReadingViewModel].
 @ProviderFor(CurrentReadingViewModel)

@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:book_manager/application/dto/book_dto.dart';
+import 'package:book_manager/application/dto/book/book_dto.dart';
 import 'package:book_manager/domain/book/value/book_isbn.dart';
 import 'package:book_manager/domain/book/value/book_page.dart';
 import 'package:book_manager/main.dart';

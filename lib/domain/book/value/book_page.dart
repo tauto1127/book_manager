@@ -28,6 +28,6 @@ class BookPage {
 
   @override
   String toString() {
-    return 'BookPage{value: $value}';
+    return '$value';
   }
 }

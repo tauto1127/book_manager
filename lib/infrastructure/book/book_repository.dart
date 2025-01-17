@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:book_manager/application/dto/add_book_dto.dart';
+import 'package:book_manager/application/dto/book/add_book_dto.dart';
 import 'package:book_manager/domain/book/book.dart';
 import 'package:book_manager/domain/book/book_repository_base.dart';
 import 'package:book_manager/main.dart';
@@ -33,28 +33,13 @@ class BookRestRepository implements BookRepositoryBase {
 
   @override
   Future<List<Book>> getBooks() async {
-    //ListBooksVariablesBuilder queryRef = DefaultConnector.instance.listBooks();
     List<Book> books = [];
-    //var result = await queryRef.execute();
-    //
-    //result.data.books.forEach((element) {
-    //  books.add(
-    //    Book.fromJson(
-    //      element.toJson(),
-    //    ),
-    //  );
-    //});
 
-    // .then((value) async {
-    //   value.data.books.forEach((element) {
-    //     books.add(
-    //       Book.fromJson(
-    //         element.toJson(),
-    //       ),
-    //     );
-    //     debugPrint(element.toString());
-    //   });
-    // });
+    var result = await Supabase.instance.client.from('book').select('*');
+    debugPrint(result.toString());
+    for (var value in result) {
+      books.add(Book.fromJson(value));
+    }
 
     return books;
   }

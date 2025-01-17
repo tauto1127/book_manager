@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:book_manager/application/book_app_service.dart';
-import 'package:book_manager/application/dto/add_book_dto.dart';
+import 'package:book_manager/application/dto/book/add_book_dto.dart';
 import 'package:book_manager/domain/book/value/book_isbn.dart';
 import 'package:book_manager/domain/book/value/book_page.dart';
 import 'package:book_manager/infrastructure/book/book_isbn_repository.dart';

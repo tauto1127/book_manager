@@ -17,6 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CurrentReadingState {
   BookDto? get book => throw _privateConstructorUsedError;
+  dynamic get isTimerRunning => throw _privateConstructorUsedError;
+  DateTime get startAt => throw _privateConstructorUsedError;
 
   /// Create a copy of CurrentReadingState
   /// with the given fields replaced by the non-null parameter values.
@@ -31,7 +33,7 @@ abstract class $CurrentReadingStateCopyWith<$Res> {
           CurrentReadingState value, $Res Function(CurrentReadingState) then) =
       _$CurrentReadingStateCopyWithImpl<$Res, CurrentReadingState>;
   @useResult
-  $Res call({BookDto? book});
+  $Res call({BookDto? book, dynamic isTimerRunning, DateTime startAt});
 }
 
 /// @nodoc
@@ -50,12 +52,22 @@ class _$CurrentReadingStateCopyWithImpl<$Res, $Val extends CurrentReadingState>
   @override
   $Res call({
     Object? book = freezed,
+    Object? isTimerRunning = freezed,
+    Object? startAt = null,
   }) {
     return _then(_value.copyWith(
       book: freezed == book
           ? _value.book
           : book // ignore: cast_nullable_to_non_nullable
               as BookDto?,
+      isTimerRunning: freezed == isTimerRunning
+          ? _value.isTimerRunning
+          : isTimerRunning // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      startAt: null == startAt
+          ? _value.startAt
+          : startAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ) as $Val);
   }
 }
@@ -68,7 +80,7 @@ abstract class _$$CurrentReadingStateImplCopyWith<$Res>
       __$$CurrentReadingStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({BookDto? book});
+  $Res call({BookDto? book, dynamic isTimerRunning, DateTime startAt});
 }
 
 /// @nodoc
@@ -85,12 +97,20 @@ class __$$CurrentReadingStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? book = freezed,
+    Object? isTimerRunning = freezed,
+    Object? startAt = null,
   }) {
     return _then(_$CurrentReadingStateImpl(
       book: freezed == book
           ? _value.book
           : book // ignore: cast_nullable_to_non_nullable
               as BookDto?,
+      isTimerRunning:
+          freezed == isTimerRunning ? _value.isTimerRunning! : isTimerRunning,
+      startAt: null == startAt
+          ? _value.startAt
+          : startAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -98,14 +118,20 @@ class __$$CurrentReadingStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CurrentReadingStateImpl implements _CurrentReadingState {
-  const _$CurrentReadingStateImpl({this.book});
+  const _$CurrentReadingStateImpl(
+      {this.book, this.isTimerRunning = true, required this.startAt});
 
   @override
   final BookDto? book;
+  @override
+  @JsonKey()
+  final dynamic isTimerRunning;
+  @override
+  final DateTime startAt;
 
   @override
   String toString() {
-    return 'CurrentReadingState(book: $book)';
+    return 'CurrentReadingState(book: $book, isTimerRunning: $isTimerRunning, startAt: $startAt)';
   }
 
   @override
@@ -113,11 +139,15 @@ class _$CurrentReadingStateImpl implements _CurrentReadingState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CurrentReadingStateImpl &&
-            (identical(other.book, book) || other.book == book));
+            (identical(other.book, book) || other.book == book) &&
+            const DeepCollectionEquality()
+                .equals(other.isTimerRunning, isTimerRunning) &&
+            (identical(other.startAt, startAt) || other.startAt == startAt));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, book);
+  int get hashCode => Object.hash(runtimeType, book,
+      const DeepCollectionEquality().hash(isTimerRunning), startAt);
 
   /// Create a copy of CurrentReadingState
   /// with the given fields replaced by the non-null parameter values.
@@ -130,11 +160,17 @@ class _$CurrentReadingStateImpl implements _CurrentReadingState {
 }
 
 abstract class _CurrentReadingState implements CurrentReadingState {
-  const factory _CurrentReadingState({final BookDto? book}) =
-      _$CurrentReadingStateImpl;
+  const factory _CurrentReadingState(
+      {final BookDto? book,
+      final dynamic isTimerRunning,
+      required final DateTime startAt}) = _$CurrentReadingStateImpl;
 
   @override
   BookDto? get book;
+  @override
+  dynamic get isTimerRunning;
+  @override
+  DateTime get startAt;
 
   /// Create a copy of CurrentReadingState
   /// with the given fields replaced by the non-null parameter values.
