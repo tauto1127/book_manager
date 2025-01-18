@@ -35,7 +35,6 @@ class BookIsbnRepositoryByKokkai extends BookIsbnRepositoryBase {
   @override
   Future<Uri> getThumnailByIsbn(BookIsbn isbn) async {
     var isbn13 = Isbn().toIsbn13(isbn.value);
-    debugPrint(isbn13);
     try {
       _isbnRepositoryClient.getThumnailByIsbn(isbn13).then((value) => Uri.parse(value));
       return Uri.parse(getThumnailUrl(isbn13));

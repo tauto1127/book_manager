@@ -6,6 +6,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 abstract class BookRepositoryBase {
   Future<List<Book>> getBooks();
   Future<String> addBook(AddBookDto book);
+  Future<void> updateCurrentPage(int bookId, int currentPage);
+  Future<Book> getBookById(int bookId);
 }
 
 final bookRepositoryProvider = Provider((ref) => BookRestRepository());

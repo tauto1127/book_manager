@@ -12,6 +12,7 @@ class AddReadingEntryDto with _$AddReadingEntryDto {
     @DateTimeConverter() required DateTime endAt,
     required int durationInSeconds,
     required int pageRead,
+    required int currentPage,
   }) = _AddReadingEntryDto;
 
   //factory AddBookDto.fromJson(Map<String, dynamic> json) => _$AddBookDtoFromJson(json);

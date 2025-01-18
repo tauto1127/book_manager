@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:book_manager/application/dto/book/book_dto.dart';
 import 'package:book_manager/domain/book/value/book_isbn.dart';
 import 'package:book_manager/domain/book/value/book_page.dart';
+import 'package:book_manager/domain/reading_entry/reading_entry_repository_base.dart';
 import 'package:book_manager/main.dart';
 import 'package:book_manager/presentation/routes.gr.dart';
 import 'package:book_manager/presentation/view_model/current_reading_view_model.dart';
@@ -42,6 +43,11 @@ class _DeveloperPageState extends ConsumerState<DeveloperPage> {
                   }
                 },
                 child: const Text("add entry")),
+            TextButton(
+                child: const Text("合計時間"),
+                onPressed: () async {
+                  await ref.read(readingEntryRepositoryProvider).getReadingEntryDurationInSeconds(3);
+                })
           ],
         ),
       ),

@@ -36,11 +36,22 @@ class BookRestRepository implements BookRepositoryBase {
     List<Book> books = [];
 
     var result = await Supabase.instance.client.from('book').select('*');
-    debugPrint(result.toString());
     for (var value in result) {
       books.add(Book.fromJson(value));
     }
 
     return books;
+  }
+
+  @override
+  Future<void> updateCurrentPage(int bookId, int currentPage) async {
+    await Supabase.instance.client.from('book').update({'currentPage': currentPage}).eq('id', bookId);
+  }
+
+  @override
+  Future<Book> getBookById(int bookId) async {
+    //var book = Book.fromJson(await (Supabase.instance.client.from('book').select().eq('id', bookId)));
+    var book = await (Supabase.instance.client.from('book').select().eq('id', bookId).limit(1));
+    return Book.fromJson(book[0]);
   }
 }

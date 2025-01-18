@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:book_manager/application/book_app_service.dart';
 import 'package:book_manager/application/dto/book/book_dto.dart';
+import 'package:book_manager/application/reading_entry_service.dart';
 import 'package:book_manager/domain/book/book.dart';
 import 'package:book_manager/domain/book/book_repository_base.dart';
 import 'package:book_manager/infrastructure/book/book_repository.dart';
@@ -59,7 +60,12 @@ class _MyHomePageState extends State<MyHomePage> {
               itemBuilder: (context, i) {
                 return ListTile(
                     title: Text(snapshot.data![i].title),
-                    subtitle: Text("Page: ${snapshot.data![i].currentPage.value} / ${snapshot.data![i].lastPage.value}"),
+                    subtitle: FutureBuilder(
+                        builder: (context, readingEntrySnapshot) {
+                          return Text(
+                              "Page: ${snapshot.data![i].currentPage.value} / ${snapshot.data![i].lastPage.value}, Duration: ${readingEntrySnapshot.data != null ? readingEntrySnapshot.data!.inMinutes : 0}分");
+                        },
+                        future: ref.watch(readingEntryServiceProvider).getReadingEntryDurationInSeconds(snapshot.data![i].id)),
                     onTap: () {},
                     leading:
                         snapshot.data![i].thumnail != null ? Image.network(snapshot.data![i].thumnail!.toString()) : const Icon(Icons.book),

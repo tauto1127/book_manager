@@ -27,6 +27,7 @@ mixin _$AddReadingEntryDto {
   DateTime get endAt => throw _privateConstructorUsedError;
   int get durationInSeconds => throw _privateConstructorUsedError;
   int get pageRead => throw _privateConstructorUsedError;
+  int get currentPage => throw _privateConstructorUsedError;
 
   /// Serializes this AddReadingEntryDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -49,7 +50,8 @@ abstract class $AddReadingEntryDtoCopyWith<$Res> {
       @DateTimeConverter() DateTime startAt,
       @DateTimeConverter() DateTime endAt,
       int durationInSeconds,
-      int pageRead});
+      int pageRead,
+      int currentPage});
 }
 
 /// @nodoc
@@ -72,6 +74,7 @@ class _$AddReadingEntryDtoCopyWithImpl<$Res, $Val extends AddReadingEntryDto>
     Object? endAt = null,
     Object? durationInSeconds = null,
     Object? pageRead = null,
+    Object? currentPage = null,
   }) {
     return _then(_value.copyWith(
       bookId: null == bookId
@@ -94,6 +97,10 @@ class _$AddReadingEntryDtoCopyWithImpl<$Res, $Val extends AddReadingEntryDto>
           ? _value.pageRead
           : pageRead // ignore: cast_nullable_to_non_nullable
               as int,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -111,7 +118,8 @@ abstract class _$$AddReadingEntryDtoImplCopyWith<$Res>
       @DateTimeConverter() DateTime startAt,
       @DateTimeConverter() DateTime endAt,
       int durationInSeconds,
-      int pageRead});
+      int pageRead,
+      int currentPage});
 }
 
 /// @nodoc
@@ -132,6 +140,7 @@ class __$$AddReadingEntryDtoImplCopyWithImpl<$Res>
     Object? endAt = null,
     Object? durationInSeconds = null,
     Object? pageRead = null,
+    Object? currentPage = null,
   }) {
     return _then(_$AddReadingEntryDtoImpl(
       bookId: null == bookId
@@ -154,6 +163,10 @@ class __$$AddReadingEntryDtoImplCopyWithImpl<$Res>
           ? _value.pageRead
           : pageRead // ignore: cast_nullable_to_non_nullable
               as int,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -166,7 +179,8 @@ class _$AddReadingEntryDtoImpl implements _AddReadingEntryDto {
       @DateTimeConverter() required this.startAt,
       @DateTimeConverter() required this.endAt,
       required this.durationInSeconds,
-      required this.pageRead});
+      required this.pageRead,
+      required this.currentPage});
 
   factory _$AddReadingEntryDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$AddReadingEntryDtoImplFromJson(json);
@@ -183,10 +197,12 @@ class _$AddReadingEntryDtoImpl implements _AddReadingEntryDto {
   final int durationInSeconds;
   @override
   final int pageRead;
+  @override
+  final int currentPage;
 
   @override
   String toString() {
-    return 'AddReadingEntryDto(bookId: $bookId, startAt: $startAt, endAt: $endAt, durationInSeconds: $durationInSeconds, pageRead: $pageRead)';
+    return 'AddReadingEntryDto(bookId: $bookId, startAt: $startAt, endAt: $endAt, durationInSeconds: $durationInSeconds, pageRead: $pageRead, currentPage: $currentPage)';
   }
 
   @override
@@ -200,13 +216,15 @@ class _$AddReadingEntryDtoImpl implements _AddReadingEntryDto {
             (identical(other.durationInSeconds, durationInSeconds) ||
                 other.durationInSeconds == durationInSeconds) &&
             (identical(other.pageRead, pageRead) ||
-                other.pageRead == pageRead));
+                other.pageRead == pageRead) &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, bookId, startAt, endAt, durationInSeconds, pageRead);
+  int get hashCode => Object.hash(runtimeType, bookId, startAt, endAt,
+      durationInSeconds, pageRead, currentPage);
 
   /// Create a copy of AddReadingEntryDto
   /// with the given fields replaced by the non-null parameter values.
@@ -231,7 +249,8 @@ abstract class _AddReadingEntryDto implements AddReadingEntryDto {
       @DateTimeConverter() required final DateTime startAt,
       @DateTimeConverter() required final DateTime endAt,
       required final int durationInSeconds,
-      required final int pageRead}) = _$AddReadingEntryDtoImpl;
+      required final int pageRead,
+      required final int currentPage}) = _$AddReadingEntryDtoImpl;
 
   factory _AddReadingEntryDto.fromJson(Map<String, dynamic> json) =
       _$AddReadingEntryDtoImpl.fromJson;
@@ -248,6 +267,8 @@ abstract class _AddReadingEntryDto implements AddReadingEntryDto {
   int get durationInSeconds;
   @override
   int get pageRead;
+  @override
+  int get currentPage;
 
   /// Create a copy of AddReadingEntryDto
   /// with the given fields replaced by the non-null parameter values.

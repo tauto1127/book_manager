@@ -18,12 +18,13 @@ Future<void> main() async {
       anonKey:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloZHVjYm1yeHFxZGlnZndsdXB4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY5NDMwMjMsImV4cCI6MjA1MjUxOTAyM30.NU1iFCVs1kt0cOd_R7pE79tMg9mGWaD1_qGjWMjA-L0',
       url: 'https://ihducbmrxqqdigfwlupx.supabase.co');
-  runApp(ProviderScope(child: MyApp()));
+  runApp(const ProviderScope(child: MyApp()));
 }
 
+final router = AppRouter();
+
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-  final _appRouter = AppRouter();
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      routerConfig: _appRouter.config(),
+      routerConfig: router.config(),
     );
   }
 }

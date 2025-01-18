@@ -14,6 +14,7 @@ _$AddReadingEntryDtoImpl _$$AddReadingEntryDtoImplFromJson(
       endAt: const DateTimeConverter().fromJson(json['endAt'] as String),
       durationInSeconds: (json['durationInSeconds'] as num).toInt(),
       pageRead: (json['pageRead'] as num).toInt(),
+      currentPage: (json['currentPage'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$AddReadingEntryDtoImplToJson(
@@ -24,4 +25,5 @@ Map<String, dynamic> _$$AddReadingEntryDtoImplToJson(
       'endAt': const DateTimeConverter().toJson(instance.endAt),
       'durationInSeconds': instance.durationInSeconds,
       'pageRead': instance.pageRead,
+      'currentPage': instance.currentPage,
     };

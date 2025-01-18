@@ -3,11 +3,11 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
-import 'package:book_manager/application/dto/add_book_dto.dart' as _i5;
-import 'package:book_manager/domain/book/book.dart' as _i4;
-import 'package:book_manager/domain/book/book_repository_base.dart' as _i2;
+import 'package:book_manager/application/dto/book/add_book_dto.dart' as _i5;
+import 'package:book_manager/domain/book/book.dart' as _i2;
+import 'package:book_manager/domain/book/book_repository_base.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i6;
 
@@ -24,29 +24,39 @@ import 'package:mockito/src/dummies.dart' as _i6;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
+class _FakeBook_0 extends _i1.SmartFake implements _i2.Book {
+  _FakeBook_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [BookRepositoryBase].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockBookRepositoryBase extends _i1.Mock
-    implements _i2.BookRepositoryBase {
+    implements _i3.BookRepositoryBase {
   @override
-  _i3.Future<List<_i4.Book>> getBooks() => (super.noSuchMethod(
+  _i4.Future<List<_i2.Book>> getBooks() => (super.noSuchMethod(
         Invocation.method(
           #getBooks,
           [],
         ),
-        returnValue: _i3.Future<List<_i4.Book>>.value(<_i4.Book>[]),
+        returnValue: _i4.Future<List<_i2.Book>>.value(<_i2.Book>[]),
         returnValueForMissingStub:
-            _i3.Future<List<_i4.Book>>.value(<_i4.Book>[]),
-      ) as _i3.Future<List<_i4.Book>>);
+            _i4.Future<List<_i2.Book>>.value(<_i2.Book>[]),
+      ) as _i4.Future<List<_i2.Book>>);
 
   @override
-  _i3.Future<String> addBook(_i5.AddBookDto? book) => (super.noSuchMethod(
+  _i4.Future<String> addBook(_i5.AddBookDto? book) => (super.noSuchMethod(
         Invocation.method(
           #addBook,
           [book],
         ),
-        returnValue: _i3.Future<String>.value(_i6.dummyValue<String>(
+        returnValue: _i4.Future<String>.value(_i6.dummyValue<String>(
           this,
           Invocation.method(
             #addBook,
@@ -54,12 +64,70 @@ class MockBookRepositoryBase extends _i1.Mock
           ),
         )),
         returnValueForMissingStub:
-            _i3.Future<String>.value(_i6.dummyValue<String>(
+            _i4.Future<String>.value(_i6.dummyValue<String>(
           this,
           Invocation.method(
             #addBook,
             [book],
           ),
         )),
-      ) as _i3.Future<String>);
+      ) as _i4.Future<String>);
+
+  @override
+  _i4.Future<String> updateCurrentPage(
+    int? bookId,
+    int? currentPage,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #updateCurrentPage,
+          [
+            bookId,
+            currentPage,
+          ],
+        ),
+        returnValue: _i4.Future<String>.value(_i6.dummyValue<String>(
+          this,
+          Invocation.method(
+            #updateCurrentPage,
+            [
+              bookId,
+              currentPage,
+            ],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i4.Future<String>.value(_i6.dummyValue<String>(
+          this,
+          Invocation.method(
+            #updateCurrentPage,
+            [
+              bookId,
+              currentPage,
+            ],
+          ),
+        )),
+      ) as _i4.Future<String>);
+
+  @override
+  _i4.Future<_i2.Book> getBookById(int? bookId) => (super.noSuchMethod(
+        Invocation.method(
+          #getBookById,
+          [bookId],
+        ),
+        returnValue: _i4.Future<_i2.Book>.value(_FakeBook_0(
+          this,
+          Invocation.method(
+            #getBookById,
+            [bookId],
+          ),
+        )),
+        returnValueForMissingStub: _i4.Future<_i2.Book>.value(_FakeBook_0(
+          this,
+          Invocation.method(
+            #getBookById,
+            [bookId],
+          ),
+        )),
+      ) as _i4.Future<_i2.Book>);
 }
