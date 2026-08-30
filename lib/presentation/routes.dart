@@ -5,10 +5,11 @@ import 'package:book_manager/presentation/routes.gr.dart';
 class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
+        AutoRoute(page: SplashRoute.page),
         AutoRoute(page: AddBookRoute.page),
         AutoRoute(page: MyHomeRoute.page, initial: true),
         AutoRoute(page: BookListRoute.page),
         AutoRoute(page: DeveloperRoute.page),
-        AutoRoute(page: AddEntryRoute.page)
+        AutoRoute(page: AddEntryRoute.page),
       ];
 }

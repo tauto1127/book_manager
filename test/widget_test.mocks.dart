@@ -74,7 +74,7 @@ class MockBookRepositoryBase extends _i1.Mock
       ) as _i4.Future<String>);
 
   @override
-  _i4.Future<String> updateCurrentPage(
+  _i4.Future<void> updateCurrentPage(
     int? bookId,
     int? currentPage,
   ) =>
@@ -86,28 +86,9 @@ class MockBookRepositoryBase extends _i1.Mock
             currentPage,
           ],
         ),
-        returnValue: _i4.Future<String>.value(_i6.dummyValue<String>(
-          this,
-          Invocation.method(
-            #updateCurrentPage,
-            [
-              bookId,
-              currentPage,
-            ],
-          ),
-        )),
-        returnValueForMissingStub:
-            _i4.Future<String>.value(_i6.dummyValue<String>(
-          this,
-          Invocation.method(
-            #updateCurrentPage,
-            [
-              bookId,
-              currentPage,
-            ],
-          ),
-        )),
-      ) as _i4.Future<String>);
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
 
   @override
   _i4.Future<_i2.Book> getBookById(int? bookId) => (super.noSuchMethod(
